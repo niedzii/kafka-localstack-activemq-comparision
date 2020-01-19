@@ -13,6 +13,7 @@ About project:
         Received message on topic test: 18:44:58, delay is 3 milliseconds
     
 Prerequisite:
+
     - Docker with docker-compose
     - Gradle in version >=4.10
     - Java 8
