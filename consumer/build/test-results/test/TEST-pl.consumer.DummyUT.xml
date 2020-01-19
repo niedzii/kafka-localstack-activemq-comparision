@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="pl.consumer.DummyUT" tests="1" skipped="0" failures="0" errors="0" timestamp="2020-01-19T18:28:18" hostname="niedzii-MS-7B86" time="0.011">
+  <properties/>
+  <testcase name="Dummy test" classname="pl.consumer.DummyUT" time="0.011"/>
+  <system-out><![CDATA[19:28:18.008 [Test worker] DEBUG com.athaydes.spockframework.report.SpockReportExtension - Configuring com.athaydes.spockframework.report.SpockReportExtension
+19:28:18.066 [Test worker] DEBUG com.athaydes.spockframework.report.internal.ConfigLoader - SpockReports config loaded: [com.athaydes.spockframework.report.internal.HtmlReportCreator.printThrowableStackTrace:false, com.athaydes.spockframework.report.internal.HtmlReportCreator.excludeToc:false, com.athaydes.spockframework.report.template.TemplateReportCreator.reportFileExtension:md, com.athaydes.spockframework.report.template.TemplateReportCreator.specTemplateFile:/templateReportCreator/spec-template.md, com.athaydes.spockframework.report.IReportCreator:com.athaydes.spockframework.report.internal.HtmlReportCreator, com.athaydes.spockframework.report.template.TemplateReportCreator.summaryTemplateFile:/templateReportCreator/summary-template.md, com.athaydes.spockframework.report.internal.HtmlReportCreator.summaryReportCss:spock-summary-report.css, com.athaydes.spockframework.report.template.TemplateReportCreator.summaryFileName:summary.md, com.athaydes.spockframework.report.internal.HtmlReportCreator.featureReportCss:spock-feature-report.css, com.athaydes.spockframework.report.hideEmptyBlocks:false, com.athaydes.spockframework.report.outputDir:build/spock-reports, com.athaydes.spockframework.report.internal.HtmlReportCreator.inlineCss:true]
+19:28:18.116 [Test worker] DEBUG com.athaydes.spockframework.report.SpockReportExtension - Loading settings for reportCreator of type com.athaydes.spockframework.report.internal.HtmlReportCreator
+19:28:18.231 [Test worker] DEBUG com.athaydes.spockframework.report.internal.CssResource - Getting classpath resource text: spock-feature-report.css
+19:28:18.235 [Test worker] DEBUG com.athaydes.spockframework.report.internal.CssResource - Found css resource (1966 characters long)
+19:28:18.235 [Test worker] DEBUG com.athaydes.spockframework.report.internal.CssResource - Inlining css in HTML report
+]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>
