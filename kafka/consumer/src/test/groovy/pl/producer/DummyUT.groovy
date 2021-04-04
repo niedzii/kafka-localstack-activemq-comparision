@@ -1,4 +1,4 @@
-package pl.consumer
+package pl.producer
 
 import spock.lang.Specification
 

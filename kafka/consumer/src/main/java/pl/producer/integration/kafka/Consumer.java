@@ -1,10 +1,10 @@
-package pl.consumer.integration.kafka;
+package pl.producer.integration.kafka;
 
 import lombok.extern.slf4j.Slf4j;
 import lombok.RequiredArgsConstructor;
 import org.springframework.kafka.annotation.KafkaListener;
 import org.springframework.stereotype.Component;
-import pl.consumer.service.LocalTimeService;
+import pl.producer.service.LocalTimeService;
 
 import java.time.Duration;
 import java.time.LocalTime;

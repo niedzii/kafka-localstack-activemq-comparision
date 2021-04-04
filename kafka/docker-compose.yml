@@ -23,7 +23,7 @@ services:
     networks:
       - app-tier
   producer:
-    image: 'producer:latest'
+    image: 'kafka-producer:latest'
     networks:
       - app-tier
     depends_on:
@@ -31,7 +31,7 @@ services:
     ports:
       - '8090:8090'
   consumer:
-    image: 'consumer:latest'
+    image: 'kafka-consumer:latest'
     networks:
       - app-tier
     depends_on:

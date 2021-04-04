@@ -1,0 +1,39 @@
+version: '2'
+
+networks:
+  app-tier-aws:
+    driver: bridge
+
+services:
+  localstack:
+    image: localstack/localstack
+    restart: always
+    container_name: localstack
+    hostname: localstack
+    networks:
+      - app-tier-aws
+    environment:
+      - SERVICES=sqs
+      - DATA_DIR=/tmp/localstack/data
+      - DOCKER_HOST=unix:///var/run/docker.sock
+      - HOSTNAME_EXTERNAL=localstack
+    volumes:
+      - "~/development/localstack:/~/development/localstack"
+    ports:
+      - "4566:4566"
+  producer:
+    image: aws-producer:latest
+    networks:
+      - app-tier-aws
+    depends_on:
+      - localstack
+    ports:
+      - '9090:9090'
+  consumer:
+    image: aws-consumer:latest
+    networks:
+      - app-tier-aws
+    depends_on:
+      - localstack
+    ports:
+      - '9070:9070'
