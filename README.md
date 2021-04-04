@@ -36,3 +36,9 @@ Localstack
 * Localstack
   [Dockerhub](https://hub.docker.com/r/localstack/localstack)
   [Github](https://github.com/localstack/localstack)
+  
+* Docker-compose
+  [Docs doker](https://docs.docker.com/compose/) 
+  
+* AWS CLI
+  [AWS Amazon](https://aws.amazon.com/cli/)
