@@ -7,8 +7,11 @@ cd aws-localstack
 docker-compose up -d
 
 echo "Waiting for localstack full startup"
-# Waiting for localstack to fully start before creating queue
-sleep 15s
+for i in {30..1..1}
+  do
+     echo "$i"
+     sleep 1s
+ done
 
 ./create_queue.sh
 

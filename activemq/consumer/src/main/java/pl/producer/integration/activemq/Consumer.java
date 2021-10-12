@@ -1,29 +1,27 @@
-package pl.producer.integration.kafka;
+package pl.producer.integration.activemq;
 
 import lombok.extern.slf4j.Slf4j;
 import lombok.RequiredArgsConstructor;
-import org.springframework.kafka.annotation.KafkaListener;
+import org.springframework.jms.annotation.JmsListener;
 import org.springframework.stereotype.Component;
 import pl.producer.service.LocalTimeService;
 
 import java.time.Duration;
 import java.time.LocalTime;
 
-@Component
 @Slf4j
+@Component
 @RequiredArgsConstructor
 public class Consumer {
 
-  private static final String TOPIC_NAME = "test";
-
   private final LocalTimeService timeService;
 
-  @KafkaListener(topics = TOPIC_NAME)
-  public void listen(String message) {
+  @JmsListener(destination = "test")
+  public void receiveMessage(String message) {
     log.info(
-        String.format(
-            "Received message on topic %s: %s, delay is %s milliseconds",
-            TOPIC_NAME, message, calculateDelay(message)));
+            String.format(
+                    "Received message on topic %s: %s, delay is %s milliseconds",
+                    "test", message, calculateDelay(message)));
   }
 
   private Long calculateDelay(String message) {

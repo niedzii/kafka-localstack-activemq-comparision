@@ -4,6 +4,7 @@ import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.jms.annotation.JmsListener;
 import org.springframework.stereotype.Component;
+import pl.consumer.infrastructure.service.LocalTimeService;
 
 import java.time.Duration;
 import java.time.LocalTime;
@@ -12,6 +13,8 @@ import java.time.LocalTime;
 @Component
 @RequiredArgsConstructor
 public class JmsMessageListener {
+
+  private final LocalTimeService localTimeService;
 
   @JmsListener(destination = "${jms.queue.name}")
   void receiveMessage(String message) {
@@ -23,7 +26,7 @@ public class JmsMessageListener {
 
   private Long calculateDelay(String message) {
     LocalTime messageTime = LocalTime.parse(message);
-    LocalTime now = LocalTime.now();
+    LocalTime now = localTimeService.now();
     return Duration.between(messageTime, now).toMillis();
   }
 }

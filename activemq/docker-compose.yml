@@ -5,36 +5,25 @@ networks:
     driver: bridge
 
 services:
-  zookeeper:
-    image: 'bitnami/zookeeper:latest'
-    environment:
-      - ALLOW_ANONYMOUS_LOGIN=yes
+  activemq:
+    image: 'rmohr/activemq:latest'
     networks:
       - app-tier
-  kafka:
-    image: 'bitnami/kafka:latest'
-    environment:
-      - KAFKA_CFG_ZOOKEEPER_CONNECT=zookeeper:2181
-      - ALLOW_PLAINTEXT_LISTENER=yes
-    depends_on:
-      - zookeeper
     ports:
-      - '9092:9092'
-    networks:
-      - app-tier
+      - '61616:61616'
   producer:
-    image: 'kafka-producer:latest'
+    image: 'activemq-producer:latest'
     networks:
       - app-tier
     depends_on:
-      - kafka
+      - activemq
     ports:
-      - '8090:8090'
+      - '8020:8020'
   consumer:
-    image: 'kafka-consumer:latest'
+    image: 'activemq-consumer:latest'
     networks:
       - app-tier
     depends_on:
-      - kafka
+      - activemq
     ports:
-      - '8070:8070'
+      - '8010:8010'

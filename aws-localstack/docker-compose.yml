@@ -28,7 +28,7 @@ services:
     depends_on:
       - localstack
     ports:
-      - '9090:9090'
+      - '8040:8040'
   consumer:
     image: aws-consumer:latest
     networks:
@@ -36,4 +36,4 @@ services:
     depends_on:
       - localstack
     ports:
-      - '9070:9070'
+      - '8030:8030'

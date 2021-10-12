@@ -16,29 +16,17 @@ repositories {
 
 ext {
     lombokVersion = "1.18.8"
-    swaggerVersion = "2.9.2"
     spockVersion = "2.4"
     groovyVersion = "2.4.11"
-    spockReportsVersion = "1.2.10"
     groovyVersion = "3.0.0-rc-3"
     jacksonVersion = "2.10.1"
-    kafkaVersion = "2.4.1.RELEASE"
 }
 
 dependencies {
-    implementation "org.springframework.boot:spring-boot-starter-web"
-    implementation "org.springframework.boot:spring-boot-starter-test"
+    implementation "org.springframework.boot:spring-boot-starter"
+    implementation "org.springframework.boot:spring-boot-starter-activemq"
     implementation "org.projectlombok:lombok:$lombokVersion"
-    implementation "io.springfox:springfox-swagger2:$swaggerVersion"
-    implementation "io.springfox:springfox-swagger-ui:$swaggerVersion"
-    implementation "org.spockframework:spock-core:1.1-groovy-$spockVersion"
-
-    testCompile "org.codehaus.groovy:groovy-all:$groovyVersion"
-    testCompile "com.athaydes:spock-reports:$spockReportsVersion"
-
-    compile group: 'org.springframework.kafka', name: 'spring-kafka', version: "$kafkaVersion"
     compile group: 'com.fasterxml.jackson.core', name: 'jackson-core', version: "$jacksonVersion"
-    compile group: 'org.springframework.boot', name: 'spring-boot-starter-actuator'
 
     annotationProcessor 'org.projectlombok:lombok:1.18.10'
 }

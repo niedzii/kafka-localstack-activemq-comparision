@@ -1,0 +1,9 @@
+server:
+  port: 8030
+
+jms:
+  queue:
+    name: aws_messages_queue
+
+
+com.amazonaws.sdk.disableCertChecking: true
