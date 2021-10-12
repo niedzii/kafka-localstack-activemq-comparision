@@ -1,0 +1,40 @@
+version: '2'
+
+networks:
+  app-tier:
+    driver: bridge
+
+services:
+  zookeeper:
+    image: 'bitnami/zookeeper:latest'
+    environment:
+      - ALLOW_ANONYMOUS_LOGIN=yes
+    networks:
+      - app-tier
+  kafka:
+    image: 'bitnami/kafka:latest'
+    environment:
+      - KAFKA_CFG_ZOOKEEPER_CONNECT=zookeeper:2181
+      - ALLOW_PLAINTEXT_LISTENER=yes
+    depends_on:
+      - zookeeper
+    ports:
+      - '9092:9092'
+    networks:
+      - app-tier
+  producer:
+    image: 'kafka-producer:latest'
+    networks:
+      - app-tier
+    depends_on:
+      - kafka
+    ports:
+      - '8090:8090'
+  consumer:
+    image: 'kafka-consumer:latest'
+    networks:
+      - app-tier
+    depends_on:
+      - kafka
+    ports:
+      - '8070:8070'
